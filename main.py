@@ -51,7 +51,7 @@ class BuildingNavigator:
             print(f"No path found from {start_location} on floor {start_floor} to {end_location} on floor {end_floor}.")
             return
 
-            # Get the edges that are part of the shortest path
+        # Get the edges that are part of the shortest path
         path_edges = [(shortest_path[i], shortest_path[i + 1]) for i in range(len(shortest_path) - 1)]
 
         # Group the path by floors
@@ -78,6 +78,7 @@ class BuildingNavigator:
 
             # Extract positions for visualization
             pos = {node: self.coordinates[node] for node in nodes_on_floor}
+            pos["Staircase Down_F2"] = (3,0)
 
             plt.figure(figsize=(8, 8))
 
@@ -179,7 +180,7 @@ navigator.add_path("Room 205", "Corner 8", 2, 2)
 # navigator.add_location("Corner 2", 2, x=1, y=-1)
 #
 # # Visualize Floor 1
-navigator.visualize_path("Entrance", 1, "Room 205", 2)
+navigator.visualize_path("Entrance", 1, "Room 102", 1)
 #
 # # Visualize Floor 2
 # navigator.visualize_floor(2)
